@@ -1,0 +1,7 @@
+com/sp/SpAppUser.class
+com/sp/rest/AuthRestCrt.class
+com/sp/repository/UserRepository.class
+com/sp/service/AuthService.class
+com/sp/rest/UserRestCrt.class
+com/sp/service/UserService.class
+com/sp/model/User.class
