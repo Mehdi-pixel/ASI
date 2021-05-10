@@ -1,10 +1,17 @@
 package com.sp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
-	private int id;
-	private String name;
+	@Id
+	@GeneratedValue
+	private Integer id;
+	protected String name;
 	private String surname;
-	private String password;
+	protected String password;
 	private String repassword;
 	
 	public User() {
@@ -26,14 +33,12 @@ public class User {
 		this.name = name;
 	}
 	
-	public void checkPassword(String password,String repassword) {
-		String reponse;
-		if (this.password==this.repassword) {
-			reponse="True";
-		}
-		else {
-			reponse="False";
-			}
-		System.out.println(reponse);
-		}
+	public String getPassword() {
+		return password;
+	}
+	
+	public String getRepassword() {
+		return repassword;
+	}
+
 }
