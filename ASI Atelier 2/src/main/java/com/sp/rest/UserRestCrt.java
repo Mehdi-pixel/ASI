@@ -15,14 +15,14 @@ public class UserRestCrt {
 	@Autowired
 	UserService hService;
 	@RequestMapping("/user")
-	public String sayHello() {
-		return "Hello User";
+	public User sayHello() {
+		return hService.getUser(1);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/adduser")
 	public void addUser(@RequestBody User user) {
 		hService.addUser(user);
-		hService.getUser(0);
+		hService.getUser(1);
 	}
 
 }

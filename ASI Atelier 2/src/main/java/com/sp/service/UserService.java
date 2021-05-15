@@ -22,7 +22,7 @@ public class UserService {
 		
 	}
 	
-	public User getUser(int id) {
+	public User getUser(Integer id) {
 		Optional<User> hOpt =hRepository.findById(id);
 		if (hOpt.isPresent()) {
 			return hOpt.get();

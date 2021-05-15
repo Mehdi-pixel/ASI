@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.sp.model.loginUser;
 import com.sp.repository.UserRepository;
 
+@Service
 public class AuthService {
 	@Autowired
 	UserService hService;
