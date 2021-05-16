@@ -1,5 +1,6 @@
 package com.sp.model;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -44,6 +45,40 @@ public class User {
 	
 	public String getRepassword() {
 		return repassword;
+	}
+	public int getMoney() {
+		return money;
+	}
+	public void earnMoney(int addedMoney) {
+		this.money=+addedMoney;
+	}
+	public void loseMoney(int lostMoney) {
+		this.money-=lostMoney;
+	}
+	public Card getCardById(Integer id) {
+		Iterator<Card> it = Listecarte.iterator();
+		while(it.hasNext()) {
+		      Card currentCard = it.next();
+		      if (currentCard.getIdCard().equals(id)) {
+		    	  return currentCard;
+		      }
+		}
+	System.out.println("Erreur ! Carte non trouvée");
+	return null;
+	}
+	public void addCard(Card carte) {
+		Listecarte.add(carte);
+	}
+	
+	public void removeCardById(Integer id) {
+		Iterator<Card> it = Listecarte.iterator();
+		while(it.hasNext()) {
+		      Card currentCard = it.next();
+		      if (currentCard.getIdCard().equals(id)) {
+		    	  Listecarte.remove(currentCard);
+		      }
+		}
+	System.out.println("Erreur ! Carte non trouvée. Suppression annulée.");
 	}
 
 }
