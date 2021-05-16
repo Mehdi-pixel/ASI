@@ -17,7 +17,7 @@ public class UserService {
 		if (h.getPassword().contentEquals(h.getRepassword())) {
 			System.out.println("Mot de passe valide");
 			User createdUser=hRepository.save(h);
-			System.out.println(createdUser);
+			System.out.println(createdUser.getName());
 		} else {
 			System.out.println("Erreur inscription");
 		}
