@@ -42,6 +42,7 @@ public class UserService {
 		while(it.hasNext()) {
 		      User currentUser = it.next();
 		      if (currentUser.getPassword() == password) {
+		    	  System.out.print("Authentification réussie!");
 		    	  return currentUser;
 		      }
 		}
