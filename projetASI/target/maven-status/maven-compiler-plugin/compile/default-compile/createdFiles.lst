@@ -1,0 +1,8 @@
+com/sp/repository/CardRepository.class
+com/sp/App.class
+com/sp/repository/CardTemplateRepository.class
+com/sp/service/CardTemplateService.class
+com/sp/rest/CardrestCrt.class
+com/sp/model/Card.class
+com/sp/model/TemplateCard.class
+com/sp/service/CardService.class
