@@ -41,12 +41,12 @@ public class UserService {
 		Iterator<User> it = uList.iterator();
 		while(it.hasNext()) {
 		      User currentUser = it.next();
-		      if (currentUser.getPassword() == password) {
-		    	  System.out.print("Authentification réussie!");
+		      if (currentUser.getPassword().equals(password)) {
+		    	  System.out.println("Authentification réussie!");
 		    	  return currentUser;
 		      }
 		}
-	System.out.print("Authentification ratée :/");
+	System.out.println("Authentification ratée :/");
 	return null;
 	}
 }
