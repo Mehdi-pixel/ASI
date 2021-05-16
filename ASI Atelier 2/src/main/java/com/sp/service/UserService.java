@@ -1,6 +1,7 @@
 package com.sp.service;
 
 import java.util.Optional;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,11 @@ public class UserService {
 		}else {
 			return null;
 		}
+	}
+	
+	public List<User> getUserName(String name,String password) {
+		List<User> uList =hRepository.findByName(name);
+		//Parcours de la liste
+		return uList;
 	}
 }
