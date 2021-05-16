@@ -13,16 +13,16 @@ import com.sp.service.UserService;
 public class UserRestCrt {
 	
 	@Autowired
-	UserService hService;
+	UserService userService;
 	@RequestMapping("/user")
 	public User sayHello() {
-		return hService.getUser(1);
+		return userService.getUser(1);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/adduser")
 	public void addUser(@RequestBody User user) {
-		hService.addUser(user);
-		hService.getUser(1);
+		userService.addUser(user);
+		userService.getUser(1);
 	}
 
 }

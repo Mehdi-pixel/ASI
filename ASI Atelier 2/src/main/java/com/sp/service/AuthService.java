@@ -11,9 +11,9 @@ import com.sp.repository.UserRepository;
 @Service
 public class AuthService {
 	@Autowired
-	UserService hService;
+	UserService userService;
 	
 	public User logUser(loginUser loguser) {
-		return hService.getUserName(loguser.getName(), loguser.getPassword());
+		return userService.getUserName(loguser.getName(), loguser.getPassword());
 	}
 }

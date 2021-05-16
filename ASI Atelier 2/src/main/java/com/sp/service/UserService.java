@@ -13,13 +13,11 @@ import com.sp.repository.UserRepository;
 @Service
 public class UserService {
 	@Autowired
-	UserRepository hRepository;
-	@Autowired
-	AuthService aService;
+	UserRepository userRepository;
 	public void addUser(User h) {
 		if (h.getPassword().contentEquals(h.getRepassword())) {
 			System.out.println("Mot de passe valide");
-			User createdUser=hRepository.save(h);
+			User createdUser=userRepository.save(h);
 			System.out.println(createdUser.getName());
 		} else {
 			System.out.println("Erreur inscription");
@@ -28,7 +26,7 @@ public class UserService {
 	}
 	
 	public User getUser(Integer id) {
-		Optional<User> hOpt =hRepository.findById(id);
+		Optional<User> hOpt =userRepository.findById(id);
 		if (hOpt.isPresent()) {
 			return hOpt.get();
 		}else {
@@ -37,7 +35,7 @@ public class UserService {
 	}
 	
 	public User getUserName(String name,String password) {
-		List<User> uList =hRepository.findByName(name);
+		List<User> uList =userRepository.findByName(name);
 		Iterator<User> it = uList.iterator();
 		while(it.hasNext()) {
 		      User currentUser = it.next();
