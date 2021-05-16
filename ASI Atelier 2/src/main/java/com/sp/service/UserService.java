@@ -11,6 +11,8 @@ import com.sp.repository.UserRepository;
 public class UserService {
 	@Autowired
 	UserRepository hRepository;
+	@Autowired
+	AuthService aService;
 	public void addUser(User h) {
 		if (h.getPassword().contentEquals(h.getRepassword())) {
 			System.out.println("Mot de passe valide");

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class User {
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	protected String name;
 	private String surname;
 	protected String password;
@@ -17,7 +17,7 @@ public class User {
 	public User() {
 	}
 	
-	public User(Long id,String name,String surname,String password,String repassword) {
+	public User(Integer id,String name,String surname,String password,String repassword) {
 		super();
 		this.id=id;
 		this.name=name;
