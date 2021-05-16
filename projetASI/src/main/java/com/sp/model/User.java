@@ -1,5 +1,7 @@
 package com.sp.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +15,8 @@ public class User {
 	private String surname;
 	protected String password;
 	private String repassword;
+	protected List<Card> Listecarte;
+	protected int money;
 	
 	public User() {
 	}
@@ -24,6 +28,7 @@ public class User {
 		this.surname=surname;
 		this.password=password;
 		this.repassword=repassword;
+		this.money=500;
 	}
 	public String getName() {
 		return name;
