@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 import com.sp.model.User;
@@ -35,16 +36,16 @@ public class UserService {
 		}
 	}
 	
-	public List<User> getUserName(String name,String password) {
+	public User getUserName(String name,String password) {
 		List<User> uList =hRepository.findByName(name);
 		Iterator<User> it = uList.iterator();
 		while(it.hasNext()) {
-		      String currentPassword = it.next().getPassword();
-		      if (currentPassword == password) {
-		    	  //Opération réussie : IL FAUT RETURN
+		      User currentUser = it.next();
+		      if (currentUser.getPassword() == password) {
+		    	  return currentUser;
 		      }
-		System.out.print("Authentification ratée :/");
 		}
-		//return uList;
+	System.out.print("Authentification ratée :/");
+	return null;
 	}
 }
