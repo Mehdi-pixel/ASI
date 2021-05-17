@@ -1,7 +1,7 @@
 package com.sp.model;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ public class User {
 	private String surname;
 	protected String password;
 	private String repassword;
-	protected List<Card> Listecarte;
+	protected ArrayList<Card> Listecarte;
 	protected int money;
 	
 	public User() {
