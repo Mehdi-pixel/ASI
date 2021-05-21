@@ -6,6 +6,7 @@ import java.util.Iterator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -16,20 +17,22 @@ public class User {
 	private String surname;
 	protected String password;
 	private String repassword;
-	protected ArrayList<Card> Listecarte;
 	protected int money;
 	
 	public User() {
 	}
 	
-	public User(Integer id,String name,String surname,String password,String repassword) {
+	public User(String name,String surname,String password,String repassword, int money) {
 		super();
-		this.id=id;
 		this.name=name;
 		this.surname=surname;
 		this.password=password;
 		this.repassword=repassword;
-		this.money=500;
+		this.money=money;
+	}
+	
+	public Integer getId() {
+		return id;
 	}
 	public String getName() {
 		return name;
@@ -50,35 +53,10 @@ public class User {
 		return money;
 	}
 	public void earnMoney(int addedMoney) {
-		this.money=+addedMoney;
+		this.money += addedMoney;
 	}
 	public void loseMoney(int lostMoney) {
-		this.money-=lostMoney;
-	}
-	public Card getCardById(Integer id) {
-		Iterator<Card> it = Listecarte.iterator();
-		while(it.hasNext()) {
-		      Card currentCard = it.next();
-		      if (currentCard.getIdCard().equals(id)) {
-		    	  return currentCard;
-		      }
-		}
-	System.out.println("Erreur ! Carte non trouvée");
-	return null;
-	}
-	public void addCard(Card carte) {
-		Listecarte.add(carte);
-	}
-	
-	public void removeCardById(Integer id) {
-		Iterator<Card> it = Listecarte.iterator();
-		while(it.hasNext()) {
-		      Card currentCard = it.next();
-		      if (currentCard.getIdCard().equals(id)) {
-		    	  Listecarte.remove(currentCard);
-		      }
-		}
-	System.out.println("Erreur ! Carte non trouvée. Suppression annulée.");
+		this.money -= lostMoney;
 	}
 
 }

@@ -17,12 +17,13 @@ import com.sp.service.MarketService;
       MarketService mService;
       
       @RequestMapping(method=RequestMethod.GET,value="/sellcard/{idCard}/{idUserSelling}")
-      public void sellcard(@RequestBody String idCard, @RequestBody String idUserSelling) {
+      public void sellcard(@PathVariable String idCard, @PathVariable String idUserSelling) {
+    	  System.out.println("hellllooo");
           mService.sellCard(Integer.valueOf(idCard), Integer.valueOf(idUserSelling));
       }
       
       @RequestMapping(method=RequestMethod.GET,value="/buycard/{idCard}/{idUserBuying}")
-      public Card buycard(@RequestBody String idCard, @RequestBody String idUserBuying) {
+      public Card buycard(@PathVariable String idCard, @PathVariable String idUserBuying) {
     	  Card c=mService.buyCard(Integer.valueOf(idCard), Integer.valueOf(idUserBuying));
           return c;
       }
