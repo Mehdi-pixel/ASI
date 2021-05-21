@@ -17,14 +17,17 @@ import com.sp.repository.UserRepository;
 public class MarketService {
 	@Autowired
 	MarketRepository mRepository;
+	@Autowired
 	UserRepository uRepository;
+	@Autowired
+	CardRepository hRepository;
 	
 	public void sellCard(Integer idCard, Integer idUserSelling) {
 		//on recup l'utilisateur qui veut vendre
 		User user = uRepository.findById(idUserSelling).get();
 		
 		//on recupere la carte qu'il veut vendre
-		Card c = user.getCardById(idCard);
+		Card c = hRepository.findById(idCard).get();
 		
 		//on met la carte sur le marché
 		Card soldCard=mRepository.save(c);
@@ -33,7 +36,7 @@ public class MarketService {
 		user.earnMoney(soldCard.getPrice());
 		
 		//on supprime la carte de sa liste de cartes
-		user.removeCardById(idCard);
+		c.setIdOwner(-1);
 		
 		System.out.println("La carte: "+soldCard+"a été mise sur le marché.");
 	}
@@ -49,7 +52,7 @@ public class MarketService {
 		//on check s'il a assez d'argent
 		if (user.getMoney() >= prix) {
 			//s'il a assez, on lui ajoute la carte dans sa liste de cartes
-			user.addCard(c);
+			c.setIdOwner(user.getId());
 		
 			//on lui deduit le prix de la carte de sa balance actuelle
 			user.loseMoney(prix);

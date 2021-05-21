@@ -1,11 +1,11 @@
-com\sp\rest\MarketrestCrt.class
 com\sp\model\Card.class
+com\sp\rest\MarketrestCrt.class
 com\sp\rest\UserRestCrt.class
-com\sp\service\CardService.class
 com\sp\repository\UserRepository.class
+com\sp\service\CardService.class
 com\sp\service\MarketService.class
-com\sp\service\AuthService.class
 com\sp\model\loginUser.class
+com\sp\service\AuthService.class
 com\sp\rest\AuthRestCrt.class
 com\sp\service\CardTemplateService.class
 com\sp\App.class
