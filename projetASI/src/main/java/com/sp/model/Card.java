@@ -8,11 +8,10 @@ import javax.persistence.Id;
 public class Card {
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer idCard;
 	private String nameCard;
 	private Integer idTemplate;
 	private String nameTemplate;
-	private int idOwner;
 	
 	protected int Atk;
 	protected int Def;
@@ -23,8 +22,9 @@ public class Card {
 	public Card() {
 	}
 
-	public Card(String name, String imgUrl, int atk, int def, int price, String rare) {
+	public Card(int id, String name, String imgUrl, int atk, int def, int price, String rare) {
 		super();
+		this.idCard = id;
 		this.nameCard = name;
 		this.Atk = atk;
 		this.Def = def;
@@ -45,11 +45,11 @@ public class Card {
 	
 
 	public Integer getIdCard() {
-		return id;
+		return idCard;
 	}
 
 	public void setIdCard(Integer idCard) {
-		this.id = idCard;
+		this.idCard = idCard;
 	}
 
 	public String getNameCard() {
@@ -117,17 +117,9 @@ public class Card {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	
-	public int getIdOwner() {
-		return this.idOwner;
-	}
-	
-	public void setIdOwner(int ido) {
-		this.idOwner = ido;
-	}
 
 	@Override
 	public String toString() {
-		return "Card ["+this.id+"]: name:"+this.nameCard+", atk:"+this.Atk+", Def:"+this.Def+" price:"+this.price+" rarete:"+this.Rarete+" imgUrl:"+this.imgUrl;
+		return "Card ["+this.idCard+"]: name:"+this.nameCard+", atk:"+this.Atk+", Def:"+this.Def+" price:"+this.price+" rarete:"+this.Rarete+" imgUrl:"+this.imgUrl;
 	}
 }

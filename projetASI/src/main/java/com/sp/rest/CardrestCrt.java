@@ -36,7 +36,7 @@ package com.sp.rest;
       @RequestMapping("/freecards")
       public Card freeGiveAway() {
     	  Card c = hService.freeGiveAway();
-    	  System.out.println("free card");
+    	  System.out.println("free cards");
     	  return c;
       }
       

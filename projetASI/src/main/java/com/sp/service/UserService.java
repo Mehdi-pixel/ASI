@@ -14,11 +14,10 @@ import com.sp.repository.UserRepository;
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
-	
 	public void addUser(User h) {
-		if (h.getPassword().equals(h.getRepassword())) {
+		if (h.getPassword().contentEquals(h.getRepassword())) {
 			System.out.println("Mot de passe valide");
-			User createdUser = userRepository.save(h);
+			User createdUser=userRepository.save(h);
 			System.out.println(createdUser.getName());
 		} else {
 			System.out.println("Erreur inscription");
@@ -27,9 +26,9 @@ public class UserService {
 	}
 	
 	public User getUser(Integer id) {
-		Optional<User> uOpt =userRepository.findById(id);
-		if (uOpt.isPresent()) {
-			return uOpt.get();
+		Optional<User> hOpt =userRepository.findById(id);
+		if (hOpt.isPresent()) {
+			return hOpt.get();
 		}else {
 			return null;
 		}
