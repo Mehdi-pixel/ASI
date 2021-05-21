@@ -5,6 +5,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-HELLO uwu
+   <form name="AddUser"onSubmit="signup(event)">
+       <fieldset>
+       <legend>User Form</legend>
+           <div>
+               <label for="FirstName">Name :</label>
+               <input type="text" id="FirstName" name="FirstName">
+           </div>
+           <div>
+               <label for="LastName">Surname :</label>
+               <input type="text" id="LastName" name="LastName">
+           </div>
+           <div>
+               <label for="Password">Password :</label>
+               <input type="password" id="FirstPass" name="FirstPass">
+           </div>
+           <div>
+               <label for="RePassword">Re-Password :</label>
+               <input type="password" id="SecondPass" name="SecondPass">
+           </div>
+		<button>Submit</button>
+           <div>
+               <input type="reset" value="Cancel">
+           </div>
+           </fieldset>
+       </form>
+<script src="/js/index.js"></script>
+<script
+			  src="https://code.jquery.com/jquery-3.6.0.js"
+			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			  crossorigin="anonymous"></script>
 </body>
 </html>

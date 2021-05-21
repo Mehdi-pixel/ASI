@@ -22,4 +22,8 @@ public class AuthRestCrt {
 		return LogService.logUser(loguser);
 	}
 	
+	@RequestMapping(path = "/SpringSignUp")
+	public void YourActionName(@RequestBody User NovoUsor){
+			System.out.println(NovoUsor.getName());
+	  }
 }
